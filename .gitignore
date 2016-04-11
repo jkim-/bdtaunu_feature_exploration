@@ -1,3 +1,4 @@
 custom_python_utilities
 data
 .ipynb_checkpoints
+*.pyc
