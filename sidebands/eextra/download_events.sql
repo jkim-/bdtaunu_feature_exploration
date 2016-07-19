@@ -9,7 +9,7 @@ UPDATE mc_weight_tbl SET weight = weight*25;
 
 CREATE TEMPORARY VIEW sideband_mc AS
 SELECT * FROM
-sideband_generic INNER JOIN event_labels_generic USING (eid) WHERE sideband_generic.eextra_sideband = 1;
+sideband_generic INNER JOIN event_labels_generic_augmented USING (eid) WHERE sideband_generic.eextra_sideband = 1;
 
 CREATE TEMPORARY VIEW mc_meta AS
 SELECT * FROM
@@ -21,7 +21,7 @@ event_weights_generic_augmented USING (eid);
 
 CREATE TEMPORARY VIEW mc AS
 SELECT * FROM 
-(mc_meta INNER JOIN candidate_optimized_events_scores_generic USING (eid))
+(mc_meta INNER JOIN candidate_optimized_events_scores_generic_t USING (eid))
 INNER JOIN 
 candidate_optimized_events_generic USING (eid);
 
@@ -39,7 +39,7 @@ sideband WHERE sideband.mode_label = 1;
 
 CREATE TEMPORARY VIEW onpeak_data AS
 SELECT * FROM
-(onpeak_data_meta INNER JOIN candidate_optimized_events_scores_data USING (eid))
+(onpeak_data_meta INNER JOIN candidate_optimized_events_scores_data_t USING (eid))
 INNER JOIN 
 candidate_optimized_events_data USING (eid);
 
@@ -53,7 +53,7 @@ sideband WHERE sideband.mode_label = 0;
 
 CREATE TEMPORARY VIEW offpeak_data AS
 SELECT * FROM
-(offpeak_data_meta INNER JOIN candidate_optimized_events_scores_data USING (eid))
+(offpeak_data_meta INNER JOIN candidate_optimized_events_scores_data_t USING (eid))
 INNER JOIN 
 candidate_optimized_events_data USING (eid);
 
