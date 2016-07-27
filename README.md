@@ -14,3 +14,8 @@ Unblinded Data Sample
 ---
 + 1% of the data from each run
 + MC weighted accordingly (4% of generic MC weighted for 1% of data)
+
+Offpeak Weights
+---
++ In directory `offpeak_weights`, the python script can only be ran on the LTDA.  Its output is the `offpeak_weights.csv`
+used throughout this repository, and we use this weight applied to the offpeak data to substitute SP-998 and SP-1005.
